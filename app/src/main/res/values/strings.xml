@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Notes</string>
+    <string name="action_settings">Settings</string>
+    <string name="Upload">Add Note</string>
+    <string name="button_text">Add Note</string>
+    <string name="item_removed_message">Empty Note discarded</string>
+</resources>
