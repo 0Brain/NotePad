@@ -7,30 +7,33 @@
     android:id="@+id/root_layout"
     tools:context=".MainActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-
     <include layout="@layout/content_main" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@drawable/shape_drawable"
+        app:layout_anchor="@+id/bottomAppBar"
+        app:layout_anchorGravity="top"/>
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:backgroundTint="@color/color_on_primary"
+        app:fabAlignmentMode="end"
+        app:fabCradleMargin="5dp"
+        app:fabCradleRoundedCornerRadius="5dp"
+        app:navigationContentDescription="Navigation icon"
+        app:hideOnScroll="true" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
+        android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:tint="@android:color/white"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@drawable/add" />
+        app:layout_anchor="@id/bottomAppBar"
+        app:backgroundTint="@color/color_on_primary"
+        app:srcCompat="@drawable/plus" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

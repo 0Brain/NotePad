@@ -23,12 +23,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setSupportActionBar(toolbar)
 
-        fab.setOnClickListener { view ->
+        floatingActionButton.setOnClickListener { view ->
             val intentRegister = Intent(applicationContext, AddNotesActivity::class.java)
             startActivityForResult(intentRegister, 1);
         }
+        setupBottomAppBarMenuAndNavigation()
         //Load from DB
         LoadQuery("%")
     }
@@ -109,9 +109,32 @@ class MainActivity : AppCompatActivity() {
             LoadQuery("%")
         }
         if (resultCode == Activity.RESULT_CANCELED) {
-            Snackbar.make(root_layout,R.string.item_removed_message,Snackbar.LENGTH_LONG).show()
+            Snackbar.make(root_layout,R.string.item_removed_message,Snackbar.LENGTH_SHORT).show()
         }
+    }
 
+    private fun setupBottomAppBarMenuAndNavigation() {
+        bottomAppBar.replaceMenu(R.menu.menu_bottom_app_bar)
+        bottomAppBar.setOnMenuItemClickListener { item ->
+            when (item.itemId) {
+                R.id.item1 -> {
+                    Toast.makeText(this, "Clicked menu item 1", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.item2 -> {
+                    Toast.makeText(this, "Clicked menu item 2", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.item3 -> {
+                    Toast.makeText(this, "Clicked menu item 3", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                else -> false
+            }
+        }
+        bottomAppBar.setNavigationOnClickListener {
+            Toast.makeText(this, "Clicked navigation item", Toast.LENGTH_SHORT).show()
+        }
     }
 
 }

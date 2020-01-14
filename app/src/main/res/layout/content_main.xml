@@ -9,6 +9,8 @@
     tools:showIn="@layout/activity_main"
     android:background="@drawable/centered">
 
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/my_recycler_view"
         android:layout_width="match_parent"
