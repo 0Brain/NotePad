@@ -4,6 +4,8 @@ import android.app.Activity
 import android.content.ContentValues
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -22,12 +24,15 @@ class AddNotesActivity : AppCompatActivity()  {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_notes)
-        var intentThatStartedThisActivity = getIntent()
+        val intentThatStartedThisActivity = intent
+        setSupportActionBar(toolbar)
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_arrow_back_black)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
 
         if (intentThatStartedThisActivity.hasExtra(Intent.EXTRA_TEXT)) {
-            var partId = intentThatStartedThisActivity.getStringExtra(Intent.EXTRA_TEXT)
-            var foodDes = intentThatStartedThisActivity.getStringExtra(Intent.EXTRA_SUBJECT)
+            val partId = intentThatStartedThisActivity.getStringExtra(Intent.EXTRA_TEXT)
+            val foodDes = intentThatStartedThisActivity.getStringExtra(Intent.EXTRA_SUBJECT)
             note_name.setText(partId)
             note_detail_description.setText(foodDes)
         }
@@ -44,12 +49,21 @@ class AddNotesActivity : AppCompatActivity()  {
         initViews()
     }
 
-    /**
-     * This method is to initialize views
-     */
     private fun initViews() {
         textInputEditNoteName = findViewById<View>(R.id.note_name) as MaterialEditText
         textInputEditTextNoteDescription = findViewById<View>(R.id.note_detail_description) as MaterialEditText
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> { finish()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return true
     }
 
     private fun verifyFromSQLite() {
@@ -81,11 +95,11 @@ class AddNotesActivity : AppCompatActivity()  {
     }
     override fun onBackPressed() {
         if(textInputEditNoteName.text.toString().equals("") && textInputEditTextNoteDescription.text.toString().equals(""))  {
-            val returnIntent = Intent()
-            setResult(Activity.RESULT_CANCELED, returnIntent)
+            setResult(2)
             finish()
         }
         else{
+            setResult(1)
             verifyFromSQLite()
         }
         super.onBackPressed()

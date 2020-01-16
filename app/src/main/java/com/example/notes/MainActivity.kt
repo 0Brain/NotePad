@@ -1,12 +1,13 @@
 package com.example.notes
 
-import android.app.Activity
+
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
@@ -16,78 +17,86 @@ import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    var listNotes = ArrayList<Note>()
-    val numberOfColumns = 2
+    private var listNotes = ArrayList<Note>()
+    private val numberOfColumns = 2
+    private lateinit var searchBarSearchView : SearchView
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        searchBarSearchView = findViewById(R.id.searchBarSearchView)
+        searchBarSearchView.setOnClickListener {
+            searchBarSearchView.isIconified = false
+        }
         floatingActionButton.setOnClickListener { view ->
             val intentRegister = Intent(applicationContext, AddNotesActivity::class.java)
-            startActivityForResult(intentRegister, 1);
+            startActivityForResult(intentRegister, 0)
         }
         setupBottomAppBarMenuAndNavigation()
-        //Load from DB
-        LoadQuery("%")
+        loadQuery("%")
     }
+
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
-            R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
         }
     }
 
-    public fun LoadQuery(title: String) {
-        var dbManager = DbManager(this)
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        when(resultCode){
+            1->{
+                loadQuery("%")
+            }
+            2->{
+                Snackbar.make(root_layout,R.string.item_removed_message,Snackbar.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+
+     fun loadQuery(title: String) {
+        val dbManager = DbManager(this)
         val projections = arrayOf("ID", "Title", "Description")
         val selectionArgs = arrayOf(title)
-        val cursor = dbManager.Query(projections, "Title like ?", selectionArgs, "Title")
+        val cursor = dbManager.query(projections, "Title like ?", selectionArgs, "Title")
         listNotes.clear()
         if (cursor.moveToFirst()) {
 
             do {
-                val ID = cursor.getInt(cursor.getColumnIndex("ID"))
-                val Title = cursor.getString(cursor.getColumnIndex("Title"))
-                val Description = cursor.getString(cursor.getColumnIndex("Description"))
+                val iD = cursor.getInt(cursor.getColumnIndex("ID"))
+                val title = cursor.getString(cursor.getColumnIndex("Title"))
+                val description = cursor.getString(cursor.getColumnIndex("Description"))
 
-                listNotes.add(Note(ID, Title, Description))
+                listNotes.add(Note(iD, title, description))
 
             } while (cursor.moveToNext())
         }
 
-        val recyclerView = findViewById(R.id.my_recycler_view) as RecyclerView
+        val recyclerView = findViewById<RecyclerView>(R.id.my_recycler_view)
 
-
-
-        //adding a layoutmanager
-
-        recyclerView.setLayoutManager(GridLayoutManager(this, numberOfColumns))
+         recyclerView.layoutManager = GridLayoutManager(this, numberOfColumns)
         //recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        val myNotesAdapter = RecyclerViewAdapter(listNotes) { noteItem:Note->partItemClicked(noteItem)}
+         my_recycler_view.adapter = myNotesAdapter
 
-        //adapter instance
-        var myNotesAdapter = RecyclerViewAdapter(listNotes,{noteItem:Note->partItemClicked(noteItem)})
-        //set adapter
-        my_recycler_view.adapter = myNotesAdapter
-
-        //get total number of tasks from ListView
-        val total = myNotesAdapter.getItemCount()
-        //actionbar
-        val mActionBar = supportActionBar
-        if (mActionBar != null) {
-            //set to actionbar as subtitle of actionbar
-            mActionBar.subtitle = "You have $total note(s)"
-        }
+        searchBarSearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextChange(newText: String): Boolean {
+                loadQuery("$newText")
+                return false
+            }
+            override fun onQueryTextSubmit(query: String): Boolean {
+                return false
+            }
+        })
     }
     private fun partItemClicked(note : Note) {
         Toast.makeText(this, "Clicked: ${note.noteName}", Toast.LENGTH_LONG).show()
@@ -102,17 +111,6 @@ class MainActivity : AppCompatActivity() {
 //        super.onResume()
 //        LoadQuery("%")
 //    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == 1){
-            LoadQuery("%")
-        }
-        if (resultCode == Activity.RESULT_CANCELED) {
-            Snackbar.make(root_layout,R.string.item_removed_message,Snackbar.LENGTH_SHORT).show()
-        }
-    }
-
     private fun setupBottomAppBarMenuAndNavigation() {
         bottomAppBar.replaceMenu(R.menu.menu_bottom_app_bar)
         bottomAppBar.setOnMenuItemClickListener { item ->
@@ -136,5 +134,7 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "Clicked navigation item", Toast.LENGTH_SHORT).show()
         }
     }
+
+
 
 }

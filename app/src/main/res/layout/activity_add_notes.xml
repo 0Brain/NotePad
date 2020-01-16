@@ -6,15 +6,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AddNotesActivity"
-    android:orientation="vertical"
+    android:orientation="vertical">
 
-    android:layout_margin="10dp">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="0dp"
+        android:background="@null"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@null"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
 
     <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/note_name"
         android:layout_width="match_parent"
+        android:layout_margin="10dp"
         android:layout_height="wrap_content"
-        android:hint="Title"
+        android:hint="@string/note_title"
         app:met_floatingLabel="highlight"
         app:met_maxCharacters="20"/>
 
@@ -22,7 +38,8 @@
         android:id="@+id/note_detail_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Note"
-        android:textSize="15dp"
+        android:layout_margin="10dp"
+        android:hint="@string/note_hint"
+        android:textSize="15sp"
         app:met_floatingLabel="highlight"/>
 </LinearLayout>

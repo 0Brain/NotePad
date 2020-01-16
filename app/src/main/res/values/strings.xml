@@ -4,4 +4,8 @@
     <string name="Upload">Add Note</string>
     <string name="button_text">Add Note</string>
     <string name="item_removed_message">Empty Note discarded</string>
+    <string name="note_hint">Note</string>
+    <string name="note_title">Title</string>
+    <string name="notes_appear_text">Notes you add appear here</string>
+    <string name="add_note_image">add_note_image</string>
 </resources>
