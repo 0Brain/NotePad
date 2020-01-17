@@ -17,10 +17,10 @@ import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private var listNotes = ArrayList<Note>()
+    public var listNotes = ArrayList<Note>()
     private val numberOfColumns = 2
     private lateinit var searchBarSearchView : SearchView
-
+    private lateinit var recyclerView :RecyclerView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity() {
             } while (cursor.moveToNext())
         }
 
-        val recyclerView = findViewById<RecyclerView>(R.id.my_recycler_view)
+         recyclerView = findViewById(R.id.my_recycler_view)
 
          recyclerView.layoutManager = GridLayoutManager(this, numberOfColumns)
         //recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
@@ -90,14 +90,25 @@ class MainActivity : AppCompatActivity() {
 
         searchBarSearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextChange(newText: String): Boolean {
-                loadQuery("$newText")
+                myNotesAdapter!!.getFilter().filter(newText)
+                myNotesAdapter.notifyDataSetChanged()
                 return false
             }
             override fun onQueryTextSubmit(query: String): Boolean {
+                myNotesAdapter.notifyDataSetChanged()
                 return false
             }
         })
     }
+
+
+    //    private fun searchContact(keyword: String) {
+//        val databaseHelper = DbManager(applicationContext)
+//        val notes: List<Note> = databaseHelper.getAllUsers()
+//        if (notes != null) {
+//            my_recycler_view.setAdapter(ContactListAdapter(applicationContext, notes))
+//        }
+//    }
     private fun partItemClicked(note : Note) {
         Toast.makeText(this, "Clicked: ${note.noteName}", Toast.LENGTH_LONG).show()
         // Launch second activity, pass part ID as string parameter
@@ -107,10 +118,10 @@ class MainActivity : AppCompatActivity() {
         startActivity(updateNoteActivityIntent)
     }
 
-//    override fun onResume() {
-//        super.onResume()
-//        LoadQuery("%")
-//    }
+    override fun onResume() {
+        super.onResume()
+        loadQuery("%")
+    }
     private fun setupBottomAppBarMenuAndNavigation() {
         bottomAppBar.replaceMenu(R.menu.menu_bottom_app_bar)
         bottomAppBar.setOnMenuItemClickListener { item ->

@@ -4,6 +4,7 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
+import android.database.sqlite.SQLiteException
 import android.database.sqlite.SQLiteOpenHelper
 import android.database.sqlite.SQLiteQueryBuilder
 import android.widget.Toast
@@ -44,8 +45,7 @@ class DbManager(context: Context) {
     }
 
     fun insert(values: ContentValues): Long {
-        val iD = sqlDB!!.insert(dbTable, "", values)
-        return iD
+        return sqlDB!!.insert(dbTable, "", values)
     }
 
     fun query(projection: Array<String>, selection: String, selectionArgs: Array<String>, sorOrder: String): Cursor {

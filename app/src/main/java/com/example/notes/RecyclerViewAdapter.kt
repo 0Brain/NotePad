@@ -7,10 +7,11 @@ import android.widget.Filter
 import android.widget.Filterable
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import java.util.*
+import kotlin.collections.ArrayList
 
 class RecyclerViewAdapter(val list:ArrayList<Note>, private val clickable:(Note)->Unit): RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>(),Filterable {
 
-    private val filteredItems = ArrayList<Note>();
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -40,7 +41,7 @@ class RecyclerViewAdapter(val list:ArrayList<Note>, private val clickable:(Note)
     }
 
     override fun getFilter(): Filter {
-        return exampleTest;
+        return exampleTest
     }
 
     private val exampleTest = object : Filter() {
@@ -62,9 +63,10 @@ class RecyclerViewAdapter(val list:ArrayList<Note>, private val clickable:(Note)
         }
 
         override fun publishResults(p0: CharSequence?, results: FilterResults?) {
-            filteredItems.clear()
-            filteredItems.addAll(results?.values as ArrayList<Note>)
+            list.clear()
+            if (results != null) {
+                list.addAll(results.values as ArrayList<Note>)
+            }
         }
-
     }
 }
