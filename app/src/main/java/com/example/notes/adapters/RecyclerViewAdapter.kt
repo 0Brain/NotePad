@@ -1,17 +1,19 @@
-package com.example.notes
+package com.example.notes.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.Filter
 import android.widget.Filterable
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import java.util.*
-import kotlin.collections.ArrayList
+import com.example.notes.R
+import com.example.notes.data.Note
 
-class RecyclerViewAdapter(val list:ArrayList<Note>, private val clickable:(Note)->Unit): RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>(),Filterable {
 
+class RecyclerViewAdapter(var list:ArrayList<Note>, private val clickable:(Note)->Unit): RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>(),Filterable {
+    private var listener: AdapterView.OnItemClickListener? = null
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -23,6 +25,11 @@ class RecyclerViewAdapter(val list:ArrayList<Note>, private val clickable:(Note)
 
     override fun getItemCount(): Int {
         return list.size
+    }
+
+    fun setNotes(notes: ArrayList<Note>) {
+        list = notes
+        notifyDataSetChanged()
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -38,6 +45,14 @@ class RecyclerViewAdapter(val list:ArrayList<Note>, private val clickable:(Note)
             textViewAddress.text = note.noteDes
             itemView.setOnClickListener { clickListener(note) }
         }
+    }
+
+    fun setOnItemClickListener(listener: AdapterView.OnItemClickListener) {
+        this.listener = listener
+    }
+
+    interface OnItemClickListener {
+        fun onItemClick(note: Note)
     }
 
     override fun getFilter(): Filter {
