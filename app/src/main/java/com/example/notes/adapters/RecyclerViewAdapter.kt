@@ -10,10 +10,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notes.R
 import com.example.notes.data.Note
+import kotlinx.android.synthetic.main.notes_list_item.view.*
 
 
-class RecyclerViewAdapter(var list:ArrayList<Note>, private val clickable:(Note)->Unit): RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>(),Filterable {
-    private var listener: AdapterView.OnItemClickListener? = null
+class RecyclerViewAdapter(private val clickable:(Note)->Unit): RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>(),Filterable {
+
+    private var notes: List<Note> = ArrayList()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -24,16 +26,20 @@ class RecyclerViewAdapter(var list:ArrayList<Note>, private val clickable:(Note)
     }
 
     override fun getItemCount(): Int {
-        return list.size
+        return notes.size
     }
 
-    fun setNotes(notes: ArrayList<Note>) {
-        list = notes
+    fun getItem(position: Int): Note {
+        return notes[position]
+    }
+
+    fun setNotes(notes: List<Note>) {
+        this.notes = notes
         notifyDataSetChanged()
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bindItems(list[position], clickable)
+        holder.bindItems(notes[position], clickable)
     }
 
 
@@ -41,18 +47,12 @@ class RecyclerViewAdapter(var list:ArrayList<Note>, private val clickable:(Note)
         fun bindItems(note: Note, clickListener: (Note) -> Unit) {
             val textViewName = itemView.findViewById(R.id.item_name) as TextView
             val textViewAddress = itemView.findViewById(R.id.item_description) as TextView
+            val textViewPriority = itemView.findViewById(R.id.text_view_priority) as TextView
             textViewName.text = note.noteName
             textViewAddress.text = note.noteDes
+            textViewPriority.text = note.priority.toString()
             itemView.setOnClickListener { clickListener(note) }
         }
-    }
-
-    fun setOnItemClickListener(listener: AdapterView.OnItemClickListener) {
-        this.listener = listener
-    }
-
-    interface OnItemClickListener {
-        fun onItemClick(note: Note)
     }
 
     override fun getFilter(): Filter {
@@ -63,10 +63,10 @@ class RecyclerViewAdapter(var list:ArrayList<Note>, private val clickable:(Note)
         override fun performFiltering(p0: CharSequence?): FilterResults {
             val filteredList = ArrayList<Note>()
             if (p0 == null || p0.isEmpty()) {
-                filteredList.addAll(list)
+                filteredList.addAll(notes)
             } else {
                 val filterPattern = p0.toString().toLowerCase().trim()
-                for (items in list) {
+                for (items in notes) {
                     if (items.Text1().toLowerCase().contains(filterPattern)) {
                         filteredList.add(items)
                     }
@@ -78,10 +78,10 @@ class RecyclerViewAdapter(var list:ArrayList<Note>, private val clickable:(Note)
         }
 
         override fun publishResults(p0: CharSequence?, results: FilterResults?) {
-            list.clear()
-            if (results != null) {
-                list.addAll(results.values as ArrayList<Note>)
-            }
+//            notes.
+//            if (results != null) {
+//                notes.addAll(results.values as ArrayList<Note>)
+//            }
         }
     }
 }

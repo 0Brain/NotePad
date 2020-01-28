@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notes.adapters.RecyclerViewAdapter
@@ -30,11 +31,9 @@ class MainActivity : AppCompatActivity() {
 
 
     private lateinit var noteViewModel: NoteViewModel
-
-    private var listNotes = ArrayList<Note>()
     private lateinit var searchBarSearchView : SearchView
     private lateinit var recyclerView : RecyclerView
-    private var myNotesAdapter:RecyclerViewAdapter? =null
+    private val adapter = RecyclerViewAdapter{ noteItem: Note -> partItemClicked(noteItem) }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,20 +51,34 @@ class MainActivity : AppCompatActivity() {
             startActivityForResult(Intent(applicationContext, AddNotesActivity::class.java), ADD_NOTE_REQUEST)
         }
 
-
-
-        myNotesAdapter = RecyclerViewAdapter(listNotes) { noteItem: Note -> partItemClicked(noteItem) }
-
         my_recycler_view.layoutManager = LinearLayoutManager(this)
         my_recycler_view.setHasFixedSize(true)
+        my_recycler_view.adapter = adapter
 
-        noteViewModel.getAllNotes().observe(this, Observer {
-            my_recycler_view.adapter = myNotesAdapter
+        noteViewModel.getAllNotes().observe(this, Observer <List<Note>> {t->
+            adapter.setNotes(t!!)
         })
+
+        ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT.or(
+            ItemTouchHelper.RIGHT)) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                return false
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                noteViewModel.delete(adapter.getItem(viewHolder.adapterPosition))
+                Toast.makeText(baseContext, "Note Deleted!", Toast.LENGTH_SHORT).show()
+            }
+        }
+        ).attachToRecyclerView(my_recycler_view)
 
         searchBarSearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextChange(newText: String): Boolean {
-                myNotesAdapter!!.getFilter().filter(newText)
+                adapter!!.getFilter().filter(newText)
                 return false
             }
             override fun onQueryTextSubmit(query: String): Boolean {

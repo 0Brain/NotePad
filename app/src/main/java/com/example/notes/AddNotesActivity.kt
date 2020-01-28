@@ -71,7 +71,6 @@ class AddNotesActivity : AppCompatActivity()  {
             finish()
         }
         else{
-            setResult(1)
             saveNote()
         }
         super.onBackPressed()
