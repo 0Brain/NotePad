@@ -66,7 +66,7 @@ class AddNotesActivity : AppCompatActivity()  {
 
 
     override fun onBackPressed() {
-        if(note_name.text.toString().equals("") && note_detail_description.text.toString().equals(""))  {
+        if(note_name.text.toString() == "" && note_detail_description.text.toString() == "")  {
             setResult(2)
             finish()
         }
