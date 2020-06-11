@@ -2,7 +2,7 @@
 # NotesPad
 [![Maintainability](https://api.codeclimate.com/v1/badges/7601cd5df8b081399523/maintainability)](https://codeclimate.com/github/KKApaya/NotePad/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/7601cd5df8b081399523/test_coverage)](https://codeclimate.com/github/KKApaya/NotePad/test_coverage)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8017d469bf6f47ce8d77babbbf989c8d)](https://app.codacy.com/manual/KKApaya/GitHubList?utm_source=github.com&utm_medium=referral&utm_content=KKApaya/GitHubList&utm_campaign=Badge_Grade_Dashboard)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/e8bc3263d6544ba9b40db335ab3b22ab)](https://www.codacy.com/manual/KKApaya/NotePad?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=KKApaya/NotePad&amp;utm_campaign=Badge_Grade)
 
 ### Libraries Used
  - [Parceler](https://github.com/johncarl81/pareler) - Custom Library for Parceling in Android.
