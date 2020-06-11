@@ -1,4 +1,4 @@
-package com.example.notes
+package com.example.notes.presentation.ui.notes
 
 
 import android.app.Activity
@@ -11,51 +11,48 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.notes.adapters.RecyclerViewAdapter
-import com.example.notes.data.Note
-import com.example.notes.viewmodels.NoteViewModel
+import com.example.notes.R
+import com.example.notes.presentation.adapter.NotesAdapter
+import com.example.notes.data.model.Note
+import com.example.notes.presentation.ui.addnote.AddNotesActivity
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 
 
-class MainActivity : AppCompatActivity() {
+class NoteActivity : AppCompatActivity() {
 
     companion object {
         const val ADD_NOTE_REQUEST = 1
         const val EDIT_NOTE_REQUEST = 2
     }
-
-
     private lateinit var noteViewModel: NoteViewModel
-    private lateinit var searchBarSearchView : SearchView
     private lateinit var recyclerView : RecyclerView
-    private val adapter = RecyclerViewAdapter{ noteItem: Note -> partItemClicked(noteItem) }
+    private val adapter = NotesAdapter{ noteItem: Note -> partItemClicked(noteItem) }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        searchBarSearchView = findViewById(R.id.searchBarSearchView)
+        setupBottomAppBarMenuAndNavigation()
         recyclerView = findViewById(R.id.my_recycler_view)
         noteViewModel = ViewModelProvider(this).get(NoteViewModel::class.java)
 
-        searchBarSearchView.setOnClickListener {
-            searchBarSearchView.isIconified = false
-        }
-
         floatingActionButton.setOnClickListener { view ->
-            startActivityForResult(Intent(applicationContext, AddNotesActivity::class.java), ADD_NOTE_REQUEST)
+            startActivityForResult(Intent(applicationContext, AddNotesActivity::class.java),
+                ADD_NOTE_REQUEST
+            )
         }
 
-        my_recycler_view.layoutManager = LinearLayoutManager(this)
+        my_recycler_view.layoutManager = GridLayoutManager(this,2)
         my_recycler_view.setHasFixedSize(true)
         my_recycler_view.adapter = adapter
 
-        noteViewModel.getAllNotes().observe(this, Observer <List<Note>> {t->
+        noteViewModel.getAllNotes().observe(this, Observer <List<Note>> { t->
             adapter.setNotes(t!!)
         })
 
@@ -76,16 +73,7 @@ class MainActivity : AppCompatActivity() {
         }
         ).attachToRecyclerView(my_recycler_view)
 
-        searchBarSearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextChange(newText: String): Boolean {
-                adapter!!.getFilter().filter(newText)
-                return false
-            }
-            override fun onQueryTextSubmit(query: String): Boolean {
-                return false
-            }
-        })
-        setupBottomAppBarMenuAndNavigation()
+
     }
 
 
@@ -105,8 +93,7 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == ADD_NOTE_REQUEST && resultCode == Activity.RESULT_OK){
             val newNote = Note(
                 data!!.getStringExtra(AddNotesActivity.EXTRA_TITLE),
-                data.getStringExtra(AddNotesActivity.EXTRA_DESCRIPTION),
-                data.getIntExtra(AddNotesActivity.EXTRA_PRIORITY,1)
+                data.getStringExtra(AddNotesActivity.EXTRA_DESCRIPTION)
             )
             noteViewModel.insert(newNote)
             Toast.makeText(this, "Note saved!", Toast.LENGTH_SHORT).show()
@@ -119,8 +106,7 @@ class MainActivity : AppCompatActivity() {
 
             val updateNote = Note(
                 data!!.getStringExtra(AddNotesActivity.EXTRA_TITLE),
-                data!!.getStringExtra(AddNotesActivity.EXTRA_TITLE),
-                data!!.getIntExtra(AddNotesActivity.EXTRA_PRIORITY,1)
+                data!!.getStringExtra(AddNotesActivity.EXTRA_TITLE)
             )
             noteViewModel.update(updateNote)
         }
@@ -130,7 +116,8 @@ class MainActivity : AppCompatActivity() {
                 //loadQuery("%")
             }
             2->{
-                Snackbar.make(root_layout,R.string.item_removed_message,Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(root_layout,
+                    R.string.item_removed_message,Snackbar.LENGTH_SHORT).show()
             }
         }
     }
@@ -142,8 +129,9 @@ class MainActivity : AppCompatActivity() {
         updateNoteActivityIntent.putExtra(AddNotesActivity.EXTRA_ID, note.id) //ut name
         updateNoteActivityIntent.putExtra(AddNotesActivity.EXTRA_TITLE, note.noteName)
         updateNoteActivityIntent.putExtra(AddNotesActivity.EXTRA_DESCRIPTION, note.noteDes)
-        updateNoteActivityIntent.putExtra(AddNotesActivity.EXTRA_PRIORITY, note.priority)
-        startActivityForResult(updateNoteActivityIntent,EDIT_NOTE_REQUEST)
+        startActivityForResult(updateNoteActivityIntent,
+            EDIT_NOTE_REQUEST
+        )
     }
 
     private fun setupBottomAppBarMenuAndNavigation() {

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/root_layout"
-    tools:context=".MainActivity">
+    tools:context=".presentation.ui.notes.NoteActivity">
 
     <include layout="@layout/content_main" />
 
@@ -24,8 +24,8 @@
         android:layout_gravity="bottom"
         app:backgroundTint="@color/color_on_primary"
         app:fabAlignmentMode="end"
-        app:fabCradleMargin="5dp"
-        app:fabCradleRoundedCornerRadius="5dp"
+        app:fabCradleMargin="10dp"
+        app:fabCradleRoundedCornerRadius="10dp"
         app:navigationContentDescription="Navigation icon"
         app:hideOnScroll="true" />
 

@@ -1,4 +1,4 @@
-package com.example.notes
+package com.example.notes.presentation.ui.addnote
 
 import android.app.Activity
 import android.content.Intent
@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import com.example.notes.R
 import kotlinx.android.synthetic.main.activity_add_notes.*
 
 
@@ -15,7 +16,6 @@ class AddNotesActivity : AppCompatActivity()  {
         const val EXTRA_ID = "com.example.notes.EXTRA_ID"
         const val EXTRA_TITLE = "com.example.notes.EXTRA_TITLE"
         const val EXTRA_DESCRIPTION = "com.example.notes.EXTRA_DESCRIPTION"
-        const val EXTRA_PRIORITY = "com.example.notes.EXTRA_PRIORITY"
     }
 
 
@@ -23,18 +23,14 @@ class AddNotesActivity : AppCompatActivity()  {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_notes)
         setSupportActionBar(toolbar)
-        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_arrow_back_black)
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_arrow_grey)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-        number_picker_priority.minValue = 1
-        number_picker_priority.maxValue = 10
 
 
         if (intent.hasExtra(EXTRA_ID)) {
             title = "Edit Note"
             note_name.setText(intent.getStringExtra(EXTRA_TITLE))
             note_detail_description.setText(intent.getStringExtra(EXTRA_DESCRIPTION))
-            number_picker_priority.value =  intent.getIntExtra(EXTRA_PRIORITY,1)
         }else{
             title = "Add note"
         }
@@ -58,7 +54,6 @@ class AddNotesActivity : AppCompatActivity()  {
         val data = Intent().apply {
             putExtra(EXTRA_TITLE,note_name.text.toString())
             putExtra(EXTRA_DESCRIPTION,note_detail_description.text.toString())
-            putExtra(EXTRA_PRIORITY,number_picker_priority.value)
         }
         setResult(Activity.RESULT_OK,data)
         finish()

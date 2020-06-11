@@ -1,13 +1,14 @@
-package com.example.notes.viewmodels
+package com.example.notes.presentation.ui.notes
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import com.example.notes.data.Note
-import com.example.notes.data.NoteRepository
+import com.example.notes.data.model.Note
+import com.example.notes.data.repository.NoteRepository
 
 class NoteViewModel (application: Application):AndroidViewModel(application){
-    private var repository:NoteRepository = NoteRepository(application)
+    private var repository: NoteRepository =
+        NoteRepository(application)
 
     private var allNotes:LiveData<List<Note>> = repository.getAllNotes()
 
@@ -19,9 +20,6 @@ class NoteViewModel (application: Application):AndroidViewModel(application){
     }
     fun delete(note: Note){
         repository.delete(note)
-    }
-    fun deleteAllNotes(){
-        repository.deleteAllNotes()
     }
     fun getAllNotes():LiveData<List<Note>>{
         return allNotes
