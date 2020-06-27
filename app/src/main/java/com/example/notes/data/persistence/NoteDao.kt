@@ -8,13 +8,13 @@ import com.example.notes.data.model.Note
 @Dao
 interface NoteDao {
     @Insert
-    fun insertNote(note: Note)
+    suspend fun insertNote(note: Note)
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
-    fun updateNote(note: Note)
+    suspend fun updateNote(note: Note)
 
     @Delete
-    fun deleteNote(note: Note)
+    suspend fun deleteNote(note: Note)
 
     @Query("SELECT * FROM note_table WHERE note_id=:noteId")
     fun loadNoteById(noteId:String):LiveData<Note>

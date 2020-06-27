@@ -1,6 +1,7 @@
 package com.example.notes.presentation.adapter
 
 import android.view.LayoutInflater
+import android.view.OrientationEventListener
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -9,10 +10,15 @@ import com.example.notes.R
 import com.example.notes.data.model.Note
 
 
-class NotesAdapter(private val clickable: (Note) -> Unit) :
-    RecyclerView.Adapter<NotesAdapter.ViewHolder>() {
+class NotesAdapter(listener: ItemClickListener) : RecyclerView.Adapter<NotesAdapter.ViewHolder>() {
 
     private var notes: List<Note> = ArrayList()
+    private var itemClickListener = listener
+
+
+    interface ItemClickListener{
+        fun onItemClickListener(noteId:String)
+    }
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -36,17 +42,21 @@ class NotesAdapter(private val clickable: (Note) -> Unit) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bindItems(notes[position], clickable)
+        holder.bindItems(notes[position])
     }
 
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        fun bindItems(note: Note, clickListener: (Note) -> Unit) {
+    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view),View.OnClickListener {
+        fun bindItems(note: Note) {
             val textViewName = itemView.findViewById(R.id.item_name) as TextView
             val textViewAddress = itemView.findViewById(R.id.item_description) as TextView
             textViewName.text = note.noteName
             textViewAddress.text = note.noteDes
-            itemView.setOnClickListener { clickListener(note) }
+            itemView.setOnClickListener(this)
+        }
+        override fun onClick(v: View?) {
+            val note = notes[adapterPosition].id
+            itemClickListener.onItemClickListener(note)
         }
     }
 }

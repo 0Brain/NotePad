@@ -1,38 +1,52 @@
 package com.example.notes.presentation.ui.addnote
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.example.notes.R
+import com.example.notes.data.model.Note
+import com.example.notes.data.persistence.NoteDatabase
+import com.example.notes.databinding.ActivityAddNotesBinding
+import com.example.notes.presentation.ui.notes.NoteViewModel
 import kotlinx.android.synthetic.main.activity_add_notes.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 
 class AddNotesActivity : AppCompatActivity()  {
 
-    companion object {
-        const val EXTRA_ID = "com.example.notes.EXTRA_ID"
-        const val EXTRA_TITLE = "com.example.notes.EXTRA_TITLE"
-        const val EXTRA_DESCRIPTION = "com.example.notes.EXTRA_DESCRIPTION"
+    private lateinit var addNoteBinding: ActivityAddNotesBinding
+    private lateinit var mDb:NoteDatabase
+    private var mNoteId = ADD_NOTE_ID
+    companion object{
+        const val EXTRA_NOTE = "extra_note"
+        const val ADD_NOTE_ID = 1
+        const val UPDATE_NOTE_ID =2
     }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_add_notes)
+        addNoteBinding = ActivityAddNotesBinding.inflate(layoutInflater)
+        setContentView(addNoteBinding.root)
+        mDb = NoteDatabase.getInstance(this@AddNotesActivity)
         setSupportActionBar(toolbar)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_arrow_grey)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-
-        if (intent.hasExtra(EXTRA_ID)) {
-            title = "Edit Note"
-            note_name.setText(intent.getStringExtra(EXTRA_TITLE))
-            note_detail_description.setText(intent.getStringExtra(EXTRA_DESCRIPTION))
-        }else{
-            title = "Add note"
+        val intent = intent
+        if(intent!=null && intent.hasExtra(EXTRA_NOTE)){
+            mNoteId = UPDATE_NOTE_ID
+            val mNoteString = intent.getStringExtra(EXTRA_NOTE)
+            val factory = NoteViewModelFactory(application,mNoteString!!)
+            val viewModel = ViewModelProvider(this,factory).get(AddNewNoteViewModel::class.java)
+            viewModel.getNote().observe(this@AddNotesActivity, Observer {
+                addNoteBinding.noteName.setText(it.noteName)
+                addNoteBinding.noteDetailDescription.setText(it.noteDes)
+            })
         }
     }
 
@@ -51,23 +65,25 @@ class AddNotesActivity : AppCompatActivity()  {
     }
 
     private fun saveNote(){
-        val data = Intent().apply {
-            putExtra(EXTRA_TITLE,note_name.text.toString())
-            putExtra(EXTRA_DESCRIPTION,note_detail_description.text.toString())
+        val noteName:String = addNoteBinding.noteName.text.toString()
+        val noteDescription:String = addNoteBinding.noteDetailDescription.text.toString()
+        val note = Note(noteName,noteDescription)
+        GlobalScope.launch {
+            if(mNoteId == ADD_NOTE_ID){
+                mDb.noteDao().insertNote(note)
+            }else if(mNoteId == UPDATE_NOTE_ID){
+                note.id = intent.getStringExtra(EXTRA_NOTE)
+                mDb.noteDao().updateNote(note)
+            }
         }
-        setResult(Activity.RESULT_OK,data)
-        finish()
     }
 
-
     override fun onBackPressed() {
-        if(note_name.text.toString() == "" && note_detail_description.text.toString() == "")  {
-            setResult(2)
+        super.onBackPressed()
+        if(addNoteBinding.noteDetailDescription.text.toString().isEmpty() && addNoteBinding.noteName.text.toString().isEmpty()){
             finish()
-        }
-        else{
+        }else{
             saveNote()
         }
-        super.onBackPressed()
     }
 }

@@ -15,19 +15,18 @@ abstract class NoteDatabase : RoomDatabase() {
         @Volatile
         private var instance: NoteDatabase? = null
 
-        fun getInstance(context: Context): NoteDatabase? {
+        fun getInstance(context: Context): NoteDatabase {
             if (instance == null) {
-                synchronized(NoteDatabase::class) {
+                synchronized(this) {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         NoteDatabase::class.java,
                         "note_database"
-                    )
-                        .fallbackToDestructiveMigration()
+                    ).fallbackToDestructiveMigration()
                         .build()
                 }
             }
-            return instance
+            return instance!!
         }
     }
 }

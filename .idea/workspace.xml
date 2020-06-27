@@ -11,24 +11,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="83456025-6f28-446c-a13d-addac36f7744" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/notes/data/model/Note.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_arrow_grey.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_baseline_mic.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_outline_checkbox.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_outline_image.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileContent/fileContent.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/resourceHashesCache.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/jarAnalysis.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_databinding_viewbinding_4_0_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_livedata_core_ktx_2_2_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_livedata_ktx_2_2_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_viewmodel_ktx_2_2_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_room_room_ktx_2_2_5_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlinx_kotlinx_coroutines_android_1_3_7_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlinx_kotlinx_coroutines_core_1_3_7_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/notes/presentation/ui/addnote/AddNewNoteViewModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/notes/presentation/ui/addnote/NoteViewModelFactory.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_new.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_new.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_new.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_new.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_new.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -43,45 +39,20 @@
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_nineoldandroids_library_2_4_0_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_rengwuxian_materialedittext_library_2_1_4_aar.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/notes/AddNotesActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/notes/presentation/ui/addnote/AddNotesActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/notes/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/notes/presentation/ui/notes/NoteActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/notes/adapters/RecyclerViewAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/notes/presentation/adapter/NotesAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/notes/data/Note.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/notes/data/NoteDao.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/notes/data/persistence/NoteDao.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/notes/data/NoteDatabase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/notes/data/persistence/NoteDatabase.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/notes/data/NoteRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/notes/data/repository/NoteRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/notes/viewmodels/NoteViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/notes/presentation/ui/notes/NoteViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/add.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/centered.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/checkbox.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/gallery.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_action_accept.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_action_cancel.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_add_color_control_normal_24dp.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_android_color_control_normal_24dp.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_arrow_back_black.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_favorite_border_color_control_normal_24dp.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_menu_color_control_normal_24dp.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/microphone.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/notes.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/pin.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/plus.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/text_cursor_cyan.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_notes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_notes.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/notes_list_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/notes_list_item.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_bottom_app_bar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_bottom_app_bar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/notes/data/model/Note.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/notes/data/model/Note.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/notes/data/persistence/NoteDao.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/notes/data/persistence/NoteDao.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/notes/data/persistence/NoteDatabase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/notes/data/persistence/NoteDatabase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/notes/data/repository/NoteRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/notes/data/repository/NoteRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/notes/presentation/adapter/NotesAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/notes/presentation/adapter/NotesAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/notes/presentation/ui/addnote/AddNotesActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/notes/presentation/ui/addnote/AddNotesActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/notes/presentation/ui/notes/NoteActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/notes/presentation/ui/notes/NoteActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/notes/presentation/ui/notes/NoteViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/notes/presentation/ui/notes/NoteViewModel.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -330,45 +301,94 @@
       <screen x="0" y="23" width="1280" height="777" />
     </state>
     <state x="165" y="150" key="#PSD/0.23.1280.777@0.23.1280.777" timestamp="1591831938879" />
+    <state x="739" y="249" key="#com.intellij.ide.util.MemberChooser" timestamp="1592317093924">
+      <screen x="0" y="23" width="1920" height="1006" />
+    </state>
+    <state x="739" y="249" key="#com.intellij.ide.util.MemberChooser/0.23.1920.1006@0.23.1920.1006" timestamp="1592317093924" />
     <state x="125" y="344" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1591829357525">
       <screen x="0" y="23" width="1280" height="777" />
     </state>
     <state x="125" y="344" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.23.1280.777@0.23.1280.777" timestamp="1591829357525" />
-    <state x="378" y="165" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591837219294">
+    <state x="378" y="165" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591972185212">
       <screen x="0" y="23" width="1280" height="777" />
     </state>
-    <state x="378" y="165" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1280.777@0.23.1280.777" timestamp="1591837219294" />
+    <state x="378" y="165" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1280.777@0.23.1280.777" timestamp="1591972185212" />
     <state x="403" y="71" width="494" height="681" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog" timestamp="1591829659908">
       <screen x="0" y="23" width="1280" height="777" />
     </state>
     <state x="403" y="71" width="494" height="681" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/0.23.1280.777@0.23.1280.777" timestamp="1591829659908" />
-    <state width="1238" height="276" key="GridCell.Tab.0.bottom" timestamp="1591835944104">
+    <state x="816" y="298" key="AndroidProcessChooserDialog" timestamp="1592483611048">
+      <screen x="0" y="23" width="1920" height="1006" />
+    </state>
+    <state x="816" y="298" key="AndroidProcessChooserDialog/0.23.1920.1006@0.23.1920.1006" timestamp="1592483611048" />
+    <state x="0" y="23" width="1280" height="777" key="CommitChangelistDialog2" timestamp="1591839671135">
       <screen x="0" y="23" width="1280" height="777" />
+    </state>
+    <state x="0" y="23" width="1280" height="777" key="CommitChangelistDialog2/0.23.1280.777@0.23.1280.777" timestamp="1591839671135" />
+    <state width="1878" height="337" key="GridCell.Tab.0.bottom" timestamp="1592483927261">
+      <screen x="0" y="23" width="1920" height="1006" />
     </state>
     <state width="1238" height="276" key="GridCell.Tab.0.bottom/0.23.1280.777@0.23.1280.777" timestamp="1591835944104" />
-    <state width="1238" height="276" key="GridCell.Tab.0.center" timestamp="1591835944103">
-      <screen x="0" y="23" width="1280" height="777" />
+    <state width="1878" height="337" key="GridCell.Tab.0.bottom/0.23.1920.1006@0.23.1920.1006" timestamp="1592483927261" />
+    <state width="1878" height="337" key="GridCell.Tab.0.center" timestamp="1592483927260">
+      <screen x="0" y="23" width="1920" height="1006" />
     </state>
     <state width="1238" height="276" key="GridCell.Tab.0.center/0.23.1280.777@0.23.1280.777" timestamp="1591835944103" />
-    <state width="1238" height="276" key="GridCell.Tab.0.left" timestamp="1591835944103">
-      <screen x="0" y="23" width="1280" height="777" />
+    <state width="1878" height="337" key="GridCell.Tab.0.center/0.23.1920.1006@0.23.1920.1006" timestamp="1592483927260" />
+    <state width="1878" height="337" key="GridCell.Tab.0.left" timestamp="1592483927259">
+      <screen x="0" y="23" width="1920" height="1006" />
     </state>
     <state width="1238" height="276" key="GridCell.Tab.0.left/0.23.1280.777@0.23.1280.777" timestamp="1591835944103" />
-    <state width="1238" height="276" key="GridCell.Tab.0.right" timestamp="1591835944103">
-      <screen x="0" y="23" width="1280" height="777" />
+    <state width="1878" height="337" key="GridCell.Tab.0.left/0.23.1920.1006@0.23.1920.1006" timestamp="1592483927259" />
+    <state width="1878" height="337" key="GridCell.Tab.0.right" timestamp="1592483927260">
+      <screen x="0" y="23" width="1920" height="1006" />
     </state>
     <state width="1238" height="276" key="GridCell.Tab.0.right/0.23.1280.777@0.23.1280.777" timestamp="1591835944103" />
-    <state x="310" y="244" key="com.intellij.ide.util.TipDialog" timestamp="1591015249216">
+    <state width="1878" height="337" key="GridCell.Tab.0.right/0.23.1920.1006@0.23.1920.1006" timestamp="1592483927260" />
+    <state width="1878" height="337" key="GridCell.Tab.1.bottom" timestamp="1592483927262">
+      <screen x="0" y="23" width="1920" height="1006" />
+    </state>
+    <state width="1878" height="337" key="GridCell.Tab.1.bottom/0.23.1920.1006@0.23.1920.1006" timestamp="1592483927262" />
+    <state width="1878" height="337" key="GridCell.Tab.1.center" timestamp="1592483927261">
+      <screen x="0" y="23" width="1920" height="1006" />
+    </state>
+    <state width="1878" height="337" key="GridCell.Tab.1.center/0.23.1920.1006@0.23.1920.1006" timestamp="1592483927261" />
+    <state width="1878" height="337" key="GridCell.Tab.1.left" timestamp="1592483927261">
+      <screen x="0" y="23" width="1920" height="1006" />
+    </state>
+    <state width="1878" height="337" key="GridCell.Tab.1.left/0.23.1920.1006@0.23.1920.1006" timestamp="1592483927261" />
+    <state width="1878" height="337" key="GridCell.Tab.1.right" timestamp="1592483927262">
+      <screen x="0" y="23" width="1920" height="1006" />
+    </state>
+    <state width="1878" height="337" key="GridCell.Tab.1.right/0.23.1920.1006@0.23.1920.1006" timestamp="1592483927262" />
+    <state x="240" y="151" key="Vcs.Push.Dialog.v2" timestamp="1591839675669">
       <screen x="0" y="23" width="1280" height="777" />
     </state>
-    <state x="310" y="244" key="com.intellij.ide.util.TipDialog/0.23.1280.777@0.23.1280.777" timestamp="1591015249216" />
+    <state x="240" y="151" key="Vcs.Push.Dialog.v2/0.23.1280.777@0.23.1280.777" timestamp="1591839675669" />
+    <state x="465" y="309" key="com.intellij.ide.util.TipDialog" timestamp="1592580851523">
+      <screen x="0" y="23" width="1920" height="1006" />
+    </state>
+    <state x="310" y="244" key="com.intellij.ide.util.TipDialog/0.23.1280.777@0.23.1280.777" timestamp="1592095868275" />
+    <state x="465" y="309" key="com.intellij.ide.util.TipDialog/0.23.1920.1006@0.23.1920.1006" timestamp="1592580851523" />
     <state x="292" y="168" width="852" height="550" key="find.popup" timestamp="1591829336416">
       <screen x="0" y="23" width="1280" height="777" />
     </state>
     <state x="292" y="168" width="852" height="550" key="find.popup/0.23.1280.777@0.23.1280.777" timestamp="1591829336416" />
-    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup" timestamp="1590971996720">
-      <screen x="0" y="23" width="1280" height="777" />
+    <state x="458" y="154" width="1005" height="876" key="search.everywhere.popup" timestamp="1592306521856">
+      <screen x="0" y="23" width="1920" height="1006" />
     </state>
     <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.23.1280.777@0.23.1280.777" timestamp="1590971996720" />
+    <state x="458" y="154" width="1005" height="876" key="search.everywhere.popup/0.23.1920.1006@0.23.1920.1006" timestamp="1592306521856" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/notes/presentation/ui/addnote/AddNotesActivity.kt</url>
+          <line>69</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
