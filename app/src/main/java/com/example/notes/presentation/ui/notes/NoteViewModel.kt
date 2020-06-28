@@ -1,25 +1,21 @@
 package com.example.notes.presentation.ui.notes
 
 import android.app.Application
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
 import com.example.notes.data.model.Note
 import com.example.notes.data.repository.NoteRepository
 
-class NoteViewModel (application: Application):AndroidViewModel(application){
-    private var repository: NoteRepository =
-        NoteRepository(application)
+class NoteViewModel @ViewModelInject constructor(private val noteRepository: NoteRepository):ViewModel(){
 
-    private var allNotes:LiveData<List<Note>> = repository.getAllNotes()
 
-    suspend fun update(note: Note){
-        repository.update(note)
-    }
     suspend fun delete(note: Note){
-        repository.delete(note)
+        noteRepository.delete(note)
     }
 
     fun getAllNotes():LiveData<List<Note>>{
-        return allNotes
+        return noteRepository.getAllNotes()
     }
 }

@@ -13,10 +13,11 @@
     <color name="color_secondary_variant">#0039CB</color>
     <color name="color_on_secondary">#FFFFFF</color>
     <color name="color_error">#F44336</color>
-    <color name="color_on_error">#FFFFFF</color>
+    <color name="white">#FFFFFF</color>
     <color name="color_surface">#FFFFFF</color>
     <color name="color_on_surface">#000000</color>
     <color name="color_background">#FAFAFA</color>
     <color name="color_on_background">#000000</color>
     <color name="color_status_bar">#000000</color>
+    <color name="rv_back_default_color">#FAFAFA</color>
 </resources>

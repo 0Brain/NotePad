@@ -5,19 +5,19 @@
 
     <item
             android:id="@+id/item1"
-            android:icon="@drawable/ic_baseline_mic"
+            android:icon="@drawable/ic_mic_grey"
             app:showAsAction="ifRoom"
             android:title="Item 1" />
 
     <item
             android:id="@+id/item2"
-            android:icon="@drawable/ic_outline_image"
+            android:icon="@drawable/ic_image_grey"
             app:showAsAction="ifRoom"
             android:title="Item 2" />
 
     <item
             android:id="@+id/item3"
-            android:icon="@drawable/ic_outline_checkbox"
+            android:icon="@drawable/ic_checkbox_grey"
             app:showAsAction="ifRoom"
             android:title="Item 3" />
 

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -15,25 +16,25 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.notes.R
 import com.example.notes.presentation.adapter.NotesAdapter
 import com.example.notes.presentation.ui.addnote.AddNotesActivity
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 
+@AndroidEntryPoint
 class NoteActivity : AppCompatActivity(),NotesAdapter.ItemClickListener {
 
-    private lateinit var noteViewModel: NoteViewModel
     private lateinit var recyclerView : RecyclerView
     private val adapter = NotesAdapter(this)
-
+    private val noteViewModel:NoteViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setupBottomAppBarMenuAndNavigation()
         recyclerView = findViewById(R.id.my_recycler_view)
-        noteViewModel = ViewModelProvider(this).get(NoteViewModel::class.java)
 
         floatingActionButton.setOnClickListener {
             val intent = Intent(this@NoteActivity,AddNotesActivity::class.java)

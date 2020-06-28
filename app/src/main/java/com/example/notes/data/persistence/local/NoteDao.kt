@@ -1,8 +1,9 @@
-package com.example.notes.data.persistence
+package com.example.notes.data.persistence.local
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.notes.data.model.Note
+import javax.inject.Inject
 
 
 @Dao

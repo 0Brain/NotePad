@@ -334,7 +334,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/Applications/Android%20Studio.app/Contents/plugins/android/lib/android.jar!/images/material/icons/materialicons/mic_none/baseline_mic_none_24.xml" />
+                                      <entry key="url" value="jar:file:/Applications/Android%20Studio.app/Contents/plugins/android/lib/android.jar!/images/material/icons/materialiconsoutlined/mic_none/outline_mic_none_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -344,8 +344,8 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="color" value="111111" />
-                            <entry key="outputName" value="ic_baseline_mic" />
+                            <entry key="color" value="eeeeee" />
+                            <entry key="outputName" value="ic_outline_grey" />
                           </map>
                         </option>
                       </PersistentState>

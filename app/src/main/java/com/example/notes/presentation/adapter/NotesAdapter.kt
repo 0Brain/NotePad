@@ -56,7 +56,7 @@ class NotesAdapter(listener: ItemClickListener) : RecyclerView.Adapter<NotesAdap
         }
         override fun onClick(v: View?) {
             val note = notes[adapterPosition].id
-            itemClickListener.onItemClickListener(note)
+            itemClickListener.onItemClickListener(note!!)
         }
     }
 }

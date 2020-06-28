@@ -10,31 +10,24 @@
 
     <include layout="@layout/content_main" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:background="@drawable/shape_drawable"
-        app:layout_anchor="@+id/bottomAppBar"
-        app:layout_anchorGravity="top"/>
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:backgroundTint="@color/color_on_primary"
         app:fabAlignmentMode="end"
-        app:fabCradleMargin="10dp"
-        app:fabCradleRoundedCornerRadius="10dp"
-        app:navigationContentDescription="Navigation icon"
-        app:hideOnScroll="true" />
+        app:hideOnScroll="true"
+        app:navigationContentDescription="Navigation icon" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:backgroundTint="#FFCA28"
+        app:tint="@color/white"
         app:layout_anchor="@id/bottomAppBar"
-        app:backgroundTint="@color/color_on_primary"
-        app:srcCompat="@drawable/ic_add_green" />
+        app:rippleColor="@color/white"
+        app:srcCompat="@drawable/ic_add_white" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
