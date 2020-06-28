@@ -334,7 +334,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/Applications/Android%20Studio.app/Contents/plugins/android/lib/android.jar!/images/material/icons/materialiconsoutlined/mic_none/outline_mic_none_24.xml" />
+                                      <entry key="url" value="jar:file:/Applications/Android%20Studio.app/Contents/plugins/android/lib/android.jar!/images/material/icons/materialicons/arrow_back_ios/baseline_arrow_back_ios_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -345,7 +345,7 @@
                         <option name="values">
                           <map>
                             <entry key="color" value="eeeeee" />
-                            <entry key="outputName" value="ic_outline_grey" />
+                            <entry key="outputName" value="ic_arrow_back" />
                           </map>
                         </option>
                       </PersistentState>

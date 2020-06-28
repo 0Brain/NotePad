@@ -35,7 +35,7 @@ class AddNotesActivity : AppCompatActivity()  {
         addNoteBinding = ActivityAddNotesBinding.inflate(layoutInflater)
         setContentView(addNoteBinding.root)
         setSupportActionBar(toolbar)
-        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_arrow_grey)
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_arrow_back)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val intent = intent
 //        if(intent!=null && intent.hasExtra(EXTRA_NOTE)){

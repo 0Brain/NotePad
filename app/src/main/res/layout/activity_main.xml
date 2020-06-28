@@ -8,6 +8,22 @@
     android:id="@+id/root_layout"
     tools:context=".presentation.ui.notes.NoteActivity">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="0dp"
+        android:background="@android:color/transparent"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:titleTextColor="@color/color_on_surface" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
     <include layout="@layout/content_main" />
 
 

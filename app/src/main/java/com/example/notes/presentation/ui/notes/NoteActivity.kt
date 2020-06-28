@@ -33,6 +33,8 @@ class NoteActivity : AppCompatActivity(),NotesAdapter.ItemClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setSupportActionBar(toolbar)
+        supportActionBar!!.setTitle(R.string.toolbar_main_title)
         setupBottomAppBarMenuAndNavigation()
         recyclerView = findViewById(R.id.my_recycler_view)
 

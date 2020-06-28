@@ -2,6 +2,7 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/amethysta</item>
+        <item>@font/biryani_bold</item>
         <item>@font/droid_serif_bold</item>
         <item>@font/noto_sans_bold</item>
     </array>
