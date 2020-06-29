@@ -10,7 +10,6 @@
 My Notes is a small demo application based on modern Android application tech-stacks and MVVM architecture.<br>This project is for focusing especially on the new library Dagger-Hilt of implementing dependency injection.<br>
 Integrating persisted data in the database via repository pattern.
 </p>
-</br>
 
 ## Tech stack & Open-source libraries
  - [Kotlin](https://kotlinlang.org/) based + [Coroutines](https://github.com/Kotlin/kotlinx.coroutines) for asynchronous.
