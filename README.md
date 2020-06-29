@@ -1,11 +1,10 @@
 <h1 align="center">My Notes</h1>
-<p align="center">
- <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
+
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Maintainability](https://api.codeclimate.com/v1/badges/7601cd5df8b081399523/maintainability)](https://codeclimate.com/github/KKApaya/NotePad/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/7601cd5df8b081399523/test_coverage)](https://codeclimate.com/github/KKApaya/NotePad/test_coverage)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/e8bc3263d6544ba9b40db335ab3b22ab)](https://www.codacy.com/manual/KKApaya/NotePad?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=KKApaya/NotePad&amp;utm_campaign=Badge_Grade)
-</p>
+
 <p align="center">  
 My Notes is a small demo application based on modern Android application tech-stacks and MVVM architecture.<br>This project is for focusing especially on the new library Dagger-Hilt of implementing dependency injection.<br>
 Integrating persisted data in the database via repository pattern.
