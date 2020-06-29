@@ -1,6 +1,7 @@
 <h1 align="center">My Notes</h1>
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=21)
 [![Maintainability](https://api.codeclimate.com/v1/badges/7601cd5df8b081399523/maintainability)](https://codeclimate.com/github/KKApaya/NotePad/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/7601cd5df8b081399523/test_coverage)](https://codeclimate.com/github/KKApaya/NotePad/test_coverage)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/e8bc3263d6544ba9b40db335ab3b22ab)](https://www.codacy.com/manual/KKApaya/NotePad?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=KKApaya/NotePad&amp;utm_campaign=Badge_Grade)
@@ -33,7 +34,5 @@ My Notes is based on MVVM architecture and a repository pattern.
 ![architecture](https://user-images.githubusercontent.com/24237865/77502018-f7d36000-6e9c-11ea-92b0-1097240c8689.png)
 
 
-### Credits
-1.https://dribbble.com/shots/11123324-Notes-App
-
-2.https://medium.com/androiddevelopers/viewmodels-and-livedata-patterns-antipatterns-21efaef74a54
+## Credits
+ - https://dribbble.com/shots/11123324-Notes-App

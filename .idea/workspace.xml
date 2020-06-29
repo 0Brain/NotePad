@@ -12,6 +12,7 @@
   <component name="ChangeListManager">
     <list default="true" id="83456025-6f28-446c-a13d-addac36f7744" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -316,7 +317,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593401235878</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Readme update">
+      <created>1593401374981</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1593401374981</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -361,11 +369,11 @@
       <screen x="0" y="23" width="1920" height="1006" />
     </state>
     <state x="816" y="298" key="AndroidProcessChooserDialog/0.23.1920.1006@0.23.1920.1006" timestamp="1593394968281" />
-    <state x="562" y="57" width="1280" height="777" key="CommitChangelistDialog2" timestamp="1593401235608">
+    <state x="562" y="57" width="1280" height="777" key="CommitChangelistDialog2" timestamp="1593401374676">
       <screen x="0" y="23" width="1920" height="1006" />
     </state>
     <state x="0" y="23" width="1280" height="777" key="CommitChangelistDialog2/0.23.1280.777@0.23.1280.777" timestamp="1591839671135" />
-    <state x="562" y="57" key="CommitChangelistDialog2/0.23.1920.1006@0.23.1920.1006" timestamp="1593401235608" />
+    <state x="562" y="57" key="CommitChangelistDialog2/0.23.1920.1006@0.23.1920.1006" timestamp="1593401374676" />
     <state x="638" y="288" width="644" height="476" key="Downloadable.Font.Dialog.Size" timestamp="1593380689243">
       <screen x="0" y="23" width="1920" height="1006" />
     </state>
@@ -406,11 +414,11 @@
       <screen x="0" y="23" width="1920" height="1006" />
     </state>
     <state width="1878" height="337" key="GridCell.Tab.1.right/0.23.1920.1006@0.23.1920.1006" timestamp="1593395590023" />
-    <state x="360" y="189" key="Vcs.Push.Dialog.v2" timestamp="1593401238889">
+    <state x="360" y="189" key="Vcs.Push.Dialog.v2" timestamp="1593401380316">
       <screen x="0" y="23" width="1920" height="1006" />
     </state>
     <state x="240" y="151" key="Vcs.Push.Dialog.v2/0.23.1280.777@0.23.1280.777" timestamp="1591839675669" />
-    <state x="360" y="189" key="Vcs.Push.Dialog.v2/0.23.1920.1006@0.23.1920.1006" timestamp="1593401238889" />
+    <state x="360" y="189" key="Vcs.Push.Dialog.v2/0.23.1920.1006@0.23.1920.1006" timestamp="1593401380316" />
     <state x="465" y="309" key="com.intellij.ide.util.TipDialog" timestamp="1593389585330">
       <screen x="0" y="23" width="1920" height="1006" />
     </state>
