@@ -21,13 +21,16 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 
 @AndroidEntryPoint
 class NoteActivity : AppCompatActivity(),NotesAdapter.ItemClickListener {
 
     private lateinit var recyclerView : RecyclerView
-    private val adapter = NotesAdapter(this)
+    private val adapter by lazy {
+        NotesAdapter(this)
+    }
     private val noteViewModel:NoteViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {

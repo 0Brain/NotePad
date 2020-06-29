@@ -1,21 +1,40 @@
 package com.example.notes.presentation.ui.addnote
 
-import android.app.Application
 import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.notes.data.model.Note
 import com.example.notes.data.repository.NoteRepository
-import javax.inject.Inject
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
-class AddNewNoteViewModel constructor(private val repository: NoteRepository,noteId:String) : ViewModel(){
+class AddNewNoteViewModel @ViewModelInject constructor(private val noteRepository: NoteRepository) : ViewModel(){
 
-//    private val noteId:LiveData<Note> by lazy {
-//        repository.loadNoteById(noteId)
-//    }
-//
-//    fun getNote():LiveData<Note>{
-//        return noteId
-//    }
+    fun getNote(noteId:String):LiveData<Note>{
+        return noteRepository.getNoteById(noteId)
+    }
+
+
+    fun insertNote(note:Note){
+        viewModelScope.launch {
+            insert(note)
+        }
+    }
+
+    private suspend fun insert(note: Note) = withContext(Dispatchers.IO){
+        noteRepository.insertNote(note)
+    }
+
+
+    fun updateNote(note:Note){
+        viewModelScope.launch {
+            update(note)
+        }
+    }
+
+    private suspend fun update(note: Note) = withContext(Dispatchers.IO){
+        noteRepository.updateNote(note)
+    }
 }

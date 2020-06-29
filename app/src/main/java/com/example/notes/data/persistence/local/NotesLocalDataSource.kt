@@ -24,6 +24,10 @@ class NotesLocalDataSource internal constructor(
         noteDao.updateNote(note)
     }
 
+    override fun getNoteById(noteId: String): LiveData<Note> {
+        return noteDao.loadNoteById(noteId)
+    }
+
     override fun getAllNotes(): LiveData<List<Note>> {
         return noteDao.getAllNotes()
     }

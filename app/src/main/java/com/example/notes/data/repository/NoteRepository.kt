@@ -7,11 +7,13 @@ import javax.inject.Singleton
 @Singleton
 interface NoteRepository{
 
-    suspend fun insert(note: Note)
+    suspend fun insertNote(note: Note)
 
-    suspend fun update(note: Note)
+    suspend fun updateNote(note: Note)
 
     suspend fun delete(note: Note)
+
+    fun getNoteById(noteId:String):LiveData<Note>
 
     fun getAllNotes(): LiveData<List<Note>>
 }

@@ -12,7 +12,7 @@ class DefaultNoteRepository (
     private val ioDispatcher:CoroutineDispatcher = Dispatchers.IO)
     :NoteRepository{
 
-    override suspend fun insert(note: Note) {
+    override suspend fun insertNote(note: Note) {
         coroutineScope {
             launch {
                 notesLocalDataSource.insertNote(note)
@@ -20,7 +20,7 @@ class DefaultNoteRepository (
         }
     }
 
-    override suspend fun update(note: Note) {
+    override suspend fun updateNote(note: Note) {
         coroutineScope {
             launch {
                 notesLocalDataSource.updateNote(note)
@@ -34,6 +34,11 @@ class DefaultNoteRepository (
                 notesLocalDataSource.deleteNote(note)
             }
         }
+    }
+
+    override fun getNoteById(noteId: String): LiveData<Note> {
+        return notesLocalDataSource.getNoteById(noteId)
+
     }
 
     override fun getAllNotes(): LiveData<List<Note>> {

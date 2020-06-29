@@ -2,12 +2,14 @@ package com.example.notes.data.di
 
 import android.content.Context
 import androidx.room.Room
-import androidx.room.RoomDatabase
+import com.example.notes.data.model.Note
 import com.example.notes.data.persistence.DefaultNoteRepository
 import com.example.notes.data.persistence.local.NoteDatabase
 import com.example.notes.data.persistence.local.NotesLocalDataSource
 import com.example.notes.data.persistence.source.NotesDataSource
 import com.example.notes.data.repository.NoteRepository
+import com.example.notes.presentation.adapter.NotesAdapter
+import com.example.notes.presentation.ui.notes.NoteActivity
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -53,9 +55,10 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideIoDispatcher() = Dispatchers.IO
+    fun provideIoDispatcher():CoroutineDispatcher = Dispatchers.IO
 
 }
+
 
 @Module
 @InstallIn(ApplicationComponent::class)

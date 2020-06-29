@@ -8,9 +8,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notes.R
 import com.example.notes.data.model.Note
+import dagger.hilt.android.scopes.ActivityScoped
+import javax.inject.Inject
 
-
-class NotesAdapter(listener: ItemClickListener) : RecyclerView.Adapter<NotesAdapter.ViewHolder>() {
+@ActivityScoped
+class NotesAdapter constructor(listener: ItemClickListener) : RecyclerView.Adapter<NotesAdapter.ViewHolder>() {
 
     private var notes: List<Note> = ArrayList()
     private var itemClickListener = listener
@@ -56,7 +58,7 @@ class NotesAdapter(listener: ItemClickListener) : RecyclerView.Adapter<NotesAdap
         }
         override fun onClick(v: View?) {
             val note = notes[adapterPosition].id
-            itemClickListener.onItemClickListener(note!!)
+            itemClickListener.onItemClickListener(note)
         }
     }
 }

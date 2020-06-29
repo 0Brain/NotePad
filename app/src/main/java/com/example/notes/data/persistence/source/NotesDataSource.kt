@@ -11,5 +11,7 @@ interface NotesDataSource {
 
     suspend fun updateNote(note:Note)
 
+    fun getNoteById(noteId:String):LiveData<Note>
+
     fun getAllNotes():LiveData<List<Note>>
 }
