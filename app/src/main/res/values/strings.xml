@@ -9,4 +9,5 @@
     <string name="notes_appear_text">Notes you add appear here</string>
     <string name="add_note_image">add_note_image</string>
     <string name="toolbar_main_title">My Notes</string>
+    <string name="btn_item_default">Note</string>
 </resources>

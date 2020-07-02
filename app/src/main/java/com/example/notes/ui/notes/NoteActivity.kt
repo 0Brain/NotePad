@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.notes.R
 import com.example.notes.ui.adapter.NotesAdapter
 import com.example.notes.ui.addNote.AddNotesActivity
@@ -25,10 +26,19 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class NoteActivity : AppCompatActivity(),NotesAdapter.ItemClickListener {
 
-    private lateinit var recyclerView : RecyclerView
-    private val adapter by lazy {
+
+    //Lazy Initializations of final objects
+    private val mRecyclerView : RecyclerView by lazy {
+        findViewById<RecyclerView>(R.id.my_recycler_view)
+    }
+    private val mAdapter by lazy {
         NotesAdapter(this)
     }
+    private val mLayoutManager :StaggeredGridLayoutManager by lazy {
+        StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
+    }
+
+    //Hilt ViewModel Injection
     private val noteViewModel:NoteViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,41 +47,18 @@ class NoteActivity : AppCompatActivity(),NotesAdapter.ItemClickListener {
         setSupportActionBar(toolbar)
         supportActionBar!!.setTitle(R.string.toolbar_main_title)
         setupBottomAppBarMenuAndNavigation()
-        recyclerView = findViewById(R.id.my_recycler_view)
+
 
         floatingActionButton.setOnClickListener {
             val intent = Intent(this@NoteActivity,AddNotesActivity::class.java)
             startActivity(intent)
         }
 
-        my_recycler_view.layoutManager = GridLayoutManager(this,2)
-        my_recycler_view.setHasFixedSize(true)
-        my_recycler_view.adapter = adapter
-
-
-
+        recyclerViewSetup()
         noteViewModel.getAllNotes().observe(this, Observer{ t->
-            adapter.setNotes(t!!)
+            mAdapter.setNotes(t!!)
         })
-
-        ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT.or(
-            ItemTouchHelper.RIGHT)) {
-            override fun onMove(
-                recyclerView: RecyclerView,
-                viewHolder: RecyclerView.ViewHolder,
-                target: RecyclerView.ViewHolder
-            ): Boolean {
-                return false
-            }
-
-            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                GlobalScope.launch {
-                    noteViewModel.delete(adapter.getItem(viewHolder.adapterPosition))
-                }
-                Toast.makeText(baseContext, "Note Deleted!", Toast.LENGTH_SHORT).show()
-            }
-        }
-        ).attachToRecyclerView(my_recycler_view)
+        onDeleteNote()
     }
 
 
@@ -115,5 +102,32 @@ class NoteActivity : AppCompatActivity(),NotesAdapter.ItemClickListener {
        val updateIntent = Intent(this@NoteActivity,AddNotesActivity::class.java)
         updateIntent.putExtra(AddNotesActivity.EXTRA_NOTE,noteId)
         startActivity(updateIntent)
+    }
+
+    private fun recyclerViewSetup(){
+        mRecyclerView.layoutManager = mLayoutManager
+        mRecyclerView.setHasFixedSize(true)
+        mRecyclerView.adapter = mAdapter
+    }
+
+    private fun onDeleteNote(){
+        ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT.or(
+            ItemTouchHelper.RIGHT)) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                return false
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                GlobalScope.launch {
+                    noteViewModel.delete(mAdapter.getItem(viewHolder.adapterPosition))
+                }
+                Toast.makeText(baseContext, "Note Deleted!", Toast.LENGTH_SHORT).show()
+            }
+        }
+        ).attachToRecyclerView(my_recycler_view)
     }
 }
