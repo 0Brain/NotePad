@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.size
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -57,6 +58,7 @@ class NoteActivity : AppCompatActivity(),NotesAdapter.ItemClickListener {
         recyclerViewSetup()
         noteViewModel.getAllNotes().observe(this, Observer{ t->
             mAdapter.setNotes(t!!)
+            mRecyclerView.smoothScrollToPosition(mAdapter.itemCount - 1)
         })
         onDeleteNote()
     }

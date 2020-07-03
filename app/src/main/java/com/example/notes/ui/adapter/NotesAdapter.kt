@@ -13,6 +13,7 @@ import dagger.hilt.android.scopes.ActivityScoped
 class NotesAdapter constructor(listener: ItemClickListener) : RecyclerView.Adapter<NotesAdapter.ViewHolder>() {
 
     private var notes: List<Note> = ArrayList()
+
     private var itemClickListener = listener
 
 
